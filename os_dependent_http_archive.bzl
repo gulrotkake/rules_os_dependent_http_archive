@@ -49,10 +49,10 @@ def _os_dependent_http_archive(repository_ctx):
     "",
     repository_ctx.attr.sha256[cpu_value],
     repository_ctx.attr.type,
-    repository_ctx.attr.strip_prefix)
+    repository_ctx.attr.strip_prefix[cpu_value])
 
 _os_dependent_http_archive_attrs = {
-  "strip_prefix": attr.string(),
+  "strip_prefix": attr.string_dict(),
   "type": attr.string(),
   "build_file": attr.label(),
   "build_file_content": attr.string(),
